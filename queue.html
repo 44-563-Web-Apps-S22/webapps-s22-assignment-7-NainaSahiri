@@ -39,6 +39,8 @@
 		<button onclick="makeNewDiv()">Add value</button>
         <button onclick="fetchItem()">Fetch</button>
         <button onclick="zap()">Zap values</button>
+        <button onclick="removeDups()">Unique</button>  
+
 <script>
 	function makeNewDiv(){
 		/* make the div and its text */
@@ -71,6 +73,19 @@
             }
         }
     }
+    function removeDups() {
+        let queueItems = document.getElementsByClassName("queue")
+        for (let i = 0; i < queueItems.length; i++) {
+            for (let j = 0; j < queueItems.length; j++) {
+                cnt = 0
+                if (queueItems[i].innerHTML == queueItems[j].innerHTML && i != j) {
+                    queueItems[j].remove();
+                }
+            }
+        }
+        console.log("removing the duplicates");
+    }
+    
 </script>
 </body>
 </html>
